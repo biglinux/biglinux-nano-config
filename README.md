@@ -1,6 +1,3 @@
-# biglinux-nano-config
-
-
 ## Custom nano configuration
 
 ```
