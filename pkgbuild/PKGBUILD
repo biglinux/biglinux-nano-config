@@ -1,0 +1,19 @@
+# Maintainer: Tales A. Mendonça <talesam@gmail.com>
+
+pkgname=biglinux-nano-config
+pkgver=$(date +%y.%m.%d)
+pkgrel=$(date +%H%M)
+pkgdesc="Custom nano configuration"
+arch=('any')
+url="https://github.com/biglinux/$pkgname"
+license=('GPL3')
+depends=('nano')
+provides=("$pkgname")
+source=("git+${url}.git")
+sha256sums=('SKIP')
+install=${pkgname}.install
+
+package() {
+    mkdir -p "${pkgdir}/etc/"
+    cp "${srcdir}/${pkgname}/etc/nanorc" "${pkgdir}/etc/nanorc.new"
+}

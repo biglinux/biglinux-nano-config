@@ -1,9 +1,5 @@
-# biglinux-nano-config
+# Custom nano configuration
 
-
-## Custom nano configuration
-
-```
 # To include most of the existing syntax definitions, you can do
 include "/usr/share/nano/*.nanorc"
 
@@ -39,4 +35,3 @@ set softwrap
 
 # Limit screen width to 80 columns
 set fill 80
-```
