@@ -1,7 +1,7 @@
 # Custom nano configuration
 
 # To include most of the existing syntax definitions, you can do
-include "/usr/share/nano/*.nanorc"
+include "/usr/share/nano-syntax-highlighting/*.nanorc"
 
 # Enable auto-indentation
 set autoindent
@@ -16,7 +16,7 @@ set tabstospaces
 set nowrap
 
 # Enable mouse support
-#set mouse
+set mouse
 
 # Show line numbers
 set linenumbers
