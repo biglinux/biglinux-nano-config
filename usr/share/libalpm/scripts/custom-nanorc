@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Check if /etc/nanorc exists
+if [ -f /etc/nanorc ]; then
+    # If it exists, create a backup
+    cp -f /etc/nanorc /etc/nanorc.bak
+fi
+
+# Copy the custom configuration file
+cp -f /etc/nanorc.big /etc/nanorc

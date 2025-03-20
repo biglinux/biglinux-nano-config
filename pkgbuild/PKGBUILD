@@ -14,6 +14,25 @@ sha256sums=('SKIP')
 install=${pkgname}.install
 
 package() {
-    mkdir -p "${pkgdir}/etc/"
-    cp "${srcdir}/${pkgname}/etc/nanorc" "${pkgdir}/etc/nanorc.new"
+    cd "${srcdir}/${pkgname}"
+
+    # Determine the correct source directory
+    if [ -d "${pkgname}" ]; then
+        srcdir="${srcdir}/${pkgname}/${pkgname}"
+    else
+        srcdir="${srcdir}/${pkgname}"
+    fi
+
+    # Install files
+    local dirs=("usr" "etc" "opt")
+    for dir in "${dirs[@]}"; do
+        if [ -d "${srcdir}/${dir}" ]; then
+            cp -a "${srcdir}/${dir}" "${pkgdir}/"
+        fi
+    done
+
+    # Install documentation if present
+    if [ -f "README.md" ]; then
+        install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
+    fi
 }
