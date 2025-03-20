@@ -1,37 +1,56 @@
-# Custom nano configuration
+## Nano with BigLinux theme
+## BigLinux elegant configuration
 
-# To include most of the existing syntax definitions, you can do
-include "/usr/share/nano-syntax-highlighting/*.nanorc"
-
-# Enable auto-indentation
+## Behavior settings
 set autoindent
-
-# Set tab size to 4 spaces
-set tabsize 4
-
-# Convert tabs to spaces
-set tabstospaces
-
-# Disable line wrapping
-set nowrap
-
-# Enable mouse support
-#set mouse
-
-# Show line numbers
-set linenumbers
-
-# Make the Home key smart, to move the cursor to the first non-whitespace character on a line
-set smarthome
-
-# Save command history to a log file
+set constantshow
 set historylog
+set minibar
+set positionlog
+set tabsize 2
+set tabstospaces
+set unix
 
-# Enable backups
-set backup
+## Show a custom help line at the bottom
+unset nohelp
+set multibuffer
 
-# Enable soft wrapping of long lines
-set softwrap
+##  Biglinux theme colors - improved contrast
+set titlecolor brightwhite,blue
+set statuscolor brightwhite,blue
+set errorcolor brightwhite,red
+set selectedcolor black,brightcyan
+set stripecolor ,blue
+set numbercolor brightcyan
+set keycolor brightcyan
+set functioncolor brightblue
 
-# Limit screen width to 80 columns
-set fill 80
+## Better contrast for text
+set constantshow
+#set linenumbers
+set indicator
+
+## Syntax highlighting
+include "/usr/share/nano/*.nanorc"
+
+## Language-specific extensions
+extendsyntax python tabgives "     "
+extendsyntax makefile tabgives "	"
+
+## More intuitive keyboard shortcuts
+bind ^Q exit all
+bind ^F whereis all
+bind ^L findnext all
+bind F3 findnext all
+bind ^C copy main
+bind ^V paste all
+bind ^Y cut all
+bind ^G gotoline main
+bind ^/ comment main
+
+## Help system - F1 opens help screen
+bind F1 help all
+
+## Shortcut to insert shell function
+bind ^F "function shell_function_name()" all
+bind ^D "^[Oc^[[1;6D^T|sed 's/^[ \t]*//'" main
